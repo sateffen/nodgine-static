@@ -5,10 +5,11 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = function (aConfig) {
-    const defaultMimeType = typeof aConfig.defaultMimeType === 'string' ? aConfig.defaultMimeType : 'application/octet-stream';
-    const rootDir = typeof aConfig.root === 'string' && aConfig.root.length ? aConfig.root : process.cwd();
-    const indexFile = typeof aConfig.indexFile === 'string' && aConfig.indexFile.length ? aConfig.indexFile : 'index.html';
-    const notFoundHandler = typeof aConfig.notFoundHandler === 'function' ? aConfig.notFoundHandler : (aRequest, aResponse) => {
+    const config = aConfig && typeof aConfig === 'object' ? aConfig : {};
+    const defaultMimeType = typeof config.defaultMimeType === 'string' ? config.defaultMimeType : 'application/octet-stream';
+    const rootDir = typeof config.root === 'string' && config.root.length ? config.root : process.cwd();
+    const indexFile = typeof config.indexFile === 'string' && config.indexFile.length ? config.indexFile : 'index.html';
+    const notFoundHandler = typeof config.notFoundHandler === 'function' ? config.notFoundHandler : (aRequest, aResponse) => {
         aResponse
             .setStatusCode(404)
             .write('Not Found handler');
@@ -21,7 +22,7 @@ module.exports = function (aConfig) {
         }
 
         return new Promise((aResolve, aReject) => {
-            const target = aRequest.getRequestPath().replace(/\/[.]{1,2}/g, '/');
+            const target = aRequest.getRequestPath().replace(/\/[.]+/g, '/');
             let targetPath = path.join(rootDir, target);
 
             fs.stat(targetPath, (aError, aStat) => {
