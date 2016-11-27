@@ -1,4 +1,4 @@
-# nodgine-static
+# nodgine-static ![Codeship](https://codeship.com/projects/76e9e4a0-96d3-0134-3254-7e4be53ab501/status?branch=master)
 
 This package is a helper for the [nodgine](https://github.com/sateffen/nodgine), which helps serving static files.
 
