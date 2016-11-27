@@ -1,6 +1,6 @@
 {
   "name": "nodgine-static",
-  "version": "1.0.0-dev",
+  "version": "1.0.0",
   "description": "A static file middleware for the nodgine",
   "main": "src/index.js",
   "license": "MIT",
@@ -11,7 +11,6 @@
   "dependencies": {
     "simple-mime": "~0.1.0"
   },
-  "license": "MIT",
   "readmeFilename": "README.md",
   "devDependencies": {
     "chai": "~3.5.0",
