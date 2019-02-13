@@ -8,16 +8,16 @@ This package is a helper for the [nodgine](https://github.com/sateffen/nodgine),
 
 To use this package just apply it as missingRouteHandler:
 
-    'use strict';
-    
-    const http = require('http');    
-    const Nodgine = require('nodgine');
-    const nodgineStatic = require('nodgine-static');
-    const app = new Nodgine();
-    
-    app.setMissingRouteController(nodgineStatic({}));
-    
-    http.createServer(app.getRouter()).listen(8888);
+```js
+const http = require('http');    
+const Nodgine = require('nodgine');
+const nodgineStatic = require('nodgine-static');
+const app = new Nodgine();
+
+app.setMissingRouteController(nodgineStatic({}));
+
+http.createServer(app.getRouter()).listen(8888);
+```
 
 You can pass a configuration to *nodgineStatic*, that describes your setup.
 
