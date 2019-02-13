@@ -10,3 +10,4 @@ test/results/
 # gitignore and jshintrc has to get checked in, even if it starts with a point, it's not private
 !.gitignore
 !.eslintrc
+!.travis.yml
