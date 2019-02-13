@@ -42,7 +42,7 @@ describe('nodgine-static', () => {
         it('should call the notFoundHandler if the method is ' + aMethod, () => {
             const notFoundHandler = chai.spy();
             const func = nodgineStatic({
-                notFoundHandler
+                notFoundHandler,
             });
 
             request._method = aMethod;
@@ -57,7 +57,7 @@ describe('nodgine-static', () => {
         it('should return a promise if the method is ' + aMethod, () => {
             const notFoundHandler = chai.spy();
             const func = nodgineStatic({
-                notFoundHandler
+                notFoundHandler,
             });
 
             request._method = aMethod;
@@ -68,7 +68,7 @@ describe('nodgine-static', () => {
         it('should call the notFoundHandler because the request path does not exist', (done) => {
             const notFoundHandler = chai.spy('notFoundHandler');
             const func = nodgineStatic({
-                notFoundHandler
+                notFoundHandler,
             });
 
             request._method = aMethod;
@@ -89,7 +89,7 @@ describe('nodgine-static', () => {
         const func = nodgineStatic({
             notFoundHandler,
             rootDir: __dirname,
-            indexFile: 'iamatestandnothing.else'
+            indexFile: 'iamatestandnothing.else',
         });
 
         func(request, response)
@@ -103,7 +103,7 @@ describe('nodgine-static', () => {
         fs.stat.__spy.calls[0][1](null, {
             isDirectory: () => {
                 return true;
-            }
+            },
         });
     });
 
@@ -112,7 +112,7 @@ describe('nodgine-static', () => {
         const func = nodgineStatic({
             notFoundHandler,
             rootDir: __dirname,
-            indexFile: 'iamatestandnothing.else'
+            indexFile: 'iamatestandnothing.else',
         });
 
         request._requestPath = '/xedni.lmth';
@@ -127,7 +127,7 @@ describe('nodgine-static', () => {
         fs.stat.__spy.calls[0][1](null, {
             isDirectory: () => {
                 return false;
-            }
+            },
         });
     });
 });

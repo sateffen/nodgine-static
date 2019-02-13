@@ -4,7 +4,7 @@ const simpleMime = require('simple-mime');
 const fs = require('fs');
 const path = require('path');
 
-module.exports = function (aConfig) {
+module.exports = function(aConfig) {
     const config = aConfig && typeof aConfig === 'object' ? aConfig : {};
     const defaultMimeType = typeof config.defaultMimeType === 'string' ? config.defaultMimeType : 'application/octet-stream';
     const rootDir = typeof config.rootDir === 'string' && config.rootDir.length ? config.rootDir : process.cwd();

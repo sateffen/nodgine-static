@@ -1,5 +1,5 @@
 'use strict';
-module.exports = function (grunt) {
+module.exports = (grunt) => {
     require('./coverage.task.js')(grunt);
 
     grunt.config('mochaTest', {
@@ -10,11 +10,11 @@ module.exports = function (grunt) {
                 require: [
                     'test/setup/chai',
                     'test/setup/chaispies',
-                    'test/setup/unhandledrejection'
-                ]
+                    'test/setup/unhandledrejection',
+                ],
             },
-            src: ['./test/tests/**/*.js']
-        }
+            src: ['./test/tests/**/*.js'],
+        },
     });
 
     grunt.registerTask('coveredMocha', ['startCoverageCollection', 'mochaTest', 'stopCoverageCollection']);

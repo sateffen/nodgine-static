@@ -1,11 +1,11 @@
 'use strict';
-module.exports = function (grunt) {
+module.exports = (grunt) => {
     grunt.config('eslint', {
         options: {
-            configFile: '.eslintrc'
+            configFile: '.eslintrc',
         },
-        target: ['./src/**/*.js', './test/**/*.js']
+        target: ['./src/**/*.js', './test/**/*.js'],
     });
-    
+
     grunt.loadNpmTasks('grunt-eslint');
 };
