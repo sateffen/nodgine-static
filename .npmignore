@@ -1,0 +1,8 @@
+.*
+
+grunttasks/
+node_modules/
+test/
+
+gruntfile.js
+yarn.lock

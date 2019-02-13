@@ -11,3 +11,4 @@ test/results/
 !.gitignore
 !.eslintrc
 !.travis.yml
+!.npmignore
